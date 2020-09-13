@@ -1,0 +1,55 @@
+/* CSS Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(#4ccbf5, #3b9ebf);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.temperature-section {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.temperature-section * {
+  display: flex;
+  justify-content: center;
+  margin: 0.5em;
+}
+
+.temperature {
+  font-size: 1.5em;
+}
+
+.day-type {
+  font-size: 1.2em;
+}
+
+.five-day {
+  display: flex;
+  border-top: solid 1px #eeeeee;
+  width: 100%;
+
+}
+
+.day-one, .day-two, .day-three, .day-four, .day-five {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  background-color: #53b9db;
+  padding: 0.5em;
+}
+
+.weather-entry {
+  border-bottom: solid 1px #78cfec;
+}
