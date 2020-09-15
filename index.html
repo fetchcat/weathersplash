@@ -3,24 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather Splash</title>
-  <link href="styles.css" rel="stylesheet" />
 </head>
 <body>
   <div class="temperature-section">
-    <div>
-      <canvas width="100" height="100" class="icon"></canvas>
+    <div class="currentday-section">
+      <div class="currentday-weather">
+        <canvas width="100" height="100" class="icon"></canvas>
+        <p class="day-type">
+          Loading...
+        </p>
+      </div>
+      <div class="currentday-timetemp">
+        <h1 class="timezone">
+          Loading...
+        </h1>
+        <h2 class="temperature">
+          Loading...
+        </h2>
+      </div>      
     </div>
-    <h1 class="timezone">
-      Loading...
-    </h1>
-
-    <h2 class="temperature">
-      Loading...
-    </h2>
-    <p class="day-type">
-      Loading...
-    </p>
     <div class="five-day">
       <div class="day-one"></div>
       <div class="day-two"></div>
@@ -29,8 +30,6 @@
       <div class="day-five"></div>
     </div> 
   </div>
-
-  <script src="./skycons.js"></script>
-  <script src="./app.js"></script>
+  <!-- <script src="./app.js"></script> -->
 </body>
 </html>
