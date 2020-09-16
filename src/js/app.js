@@ -160,7 +160,7 @@ window.addEventListener('load', () => {
           const weather = item.weather[0].main;
 
           const icon = `
-            <img src="http://openweathermap.org/img/wn/${dayIcon}.png" alt="icon" />
+            <img src="https://openweathermap.org/img/wn/${dayIcon}.png" alt="icon" />
           `;
 
           const details = `
