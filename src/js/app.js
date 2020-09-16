@@ -26,8 +26,8 @@ window.addEventListener('load', () => {
 
       function convertToF(degree) {
         const celsius = Math.floor(degree);
-        const farenheit = Math.floor((celsius * (9 / 5)) + 32);
-        return farenheit;
+        const fahrenheit = Math.floor((celsius * (9 / 5)) + 32);
+        return fahrenheit;
       }
 
       // Set current day weather
