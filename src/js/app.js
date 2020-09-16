@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
   let latitude;
 
   // OpenWeatherMap.org API Key
-  const apiKey = 'f31102df1df2d7b675ab99ade20dccf8';
+  const apiKey = process.env.API_KEY;
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
