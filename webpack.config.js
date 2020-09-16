@@ -63,7 +63,7 @@ module.exports = {
       chunkFilename: 'css/[id].css',
     }),
     new webpack.DefinePlugin({
-      'process.env.API_KEY': JSON.stringify(process.env.API_KEY || 'development'),
+      'process.env.API_KEY': JSON.stringify(process.env.API_KEY || 'production'),
     }),
   ],
 };
