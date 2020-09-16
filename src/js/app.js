@@ -194,17 +194,15 @@ window.addEventListener('load', () => {
         dayFiveDiv.innerHTML = generateDay(4);
       }
 
-      fetch(getWeatherUrl, {
-        mode: 'no-cors',
-      })
+      fetch(getWeatherUrl)
         .then((res) => res.json())
-        .then((data) => setWeather(data));
+        .then((data) => setWeather(data))
+        .catch((res) => res.json());
 
-      fetch(getForecastUrl, {
-        mode: 'no-cors',
-      })
+      fetch(getForecastUrl)
         .then((res) => res.json())
-        .then((data) => fiveDay(data));
+        .then((data) => fiveDay(data))
+        .catch((res) => res.json());
     });
   } else {
     app.textContent = 'Error: No location found';
