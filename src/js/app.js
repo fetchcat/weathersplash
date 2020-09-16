@@ -51,7 +51,7 @@ window.addEventListener('load', () => {
 
         // Determine which weather icon to display
         const dayIcon = weather[0].icon;
-        const iconUrl = `http://openweathermap.org/img/wn/${dayIcon}@2x.png`;
+        const iconUrl = `https://openweathermap.org/img/wn/${dayIcon}@2x.png`;
 
         // Sets blank canvas element to main weather icon
 
