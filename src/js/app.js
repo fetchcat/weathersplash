@@ -14,16 +14,15 @@ window.addEventListener('load', () => {
 
   // OpenWeatherMap.org API Key
   const apiKey = 'f31102df1df2d7b675ab99ade20dccf8';
-  const proxy = 'https://cors-anywhere.herokuapp.com/';
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
       longitude = position.coords.longitude;
       latitude = position.coords.latitude;
 
-      const getWeatherUrl = `${proxy}api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+      const getWeatherUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
-      const getForecastUrl = `${proxy}api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+      const getForecastUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
       function convertToF(degree) {
         const celsius = Math.floor(degree);
@@ -124,12 +123,12 @@ window.addEventListener('load', () => {
         function dayFilter(inc) {
           const day = new Date();
           day.setDate(date.getDate() + inc);
-          const dayDay = day.getDate();
+          const dayFiltered = day.getDate();
 
           const dayTemps = list.filter((item) => {
             const currentDay = new Date(item.dt_txt);
-            const currentDayDay = currentDay.getDate();
-            return currentDayDay === dayDay;
+            const currentDayDate = currentDay.getDate();
+            return currentDayDate === dayFiltered;
           });
           return dayTemps;
         }
