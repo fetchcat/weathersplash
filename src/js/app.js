@@ -180,8 +180,10 @@ window.addEventListener('load', () => {
 
         function generateDay(forecasts) {
           return `
-            <div class="day-header"> ${getToday(forecasts)}</div>
+            <div class="weather-map">
+              <div class="day-header">${getToday(forecasts)}</div>
             ${dayFilter(forecasts).map((item) => entryMap(item)).join('')}
+            </div>
           `;
         }
 

@@ -1,6 +1,6 @@
 # WeatherSplash App
 
-URL: [WeatherSplash](https://weathersplash.netlify.app/);
+URL: [WeatherSplash](https://weathersplash.netlify.app/)
 
 This application uses Vanilla JavaScript and the [OpenWeather Free API](https://openweathermap.org/api) to deliver current weather (in both Celcius and Fahrenheit) based on your current location. It also displays a 5-day forecast with temperatures and conditions every 3 hours.
 

@@ -40,7 +40,7 @@ body {
   flex-wrap: wrap;
 }
 
-.day-one, .day-two, .day-three, .day-four, .day-five {
+.weather-map {
   border-radius: .5em;
   display: flex;
   justify-content: start;
