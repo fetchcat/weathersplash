@@ -20,9 +20,9 @@ window.addEventListener('load', () => {
       longitude = position.coords.longitude;
       latitude = position.coords.latitude;
 
-      const getWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+      const getWeatherUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
-      const getForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+      const getForecastUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
       function convertToF(degree) {
         const celsius = Math.floor(degree);
@@ -194,11 +194,15 @@ window.addEventListener('load', () => {
         dayFiveDiv.innerHTML = generateDay(4);
       }
 
-      fetch(getWeatherUrl)
+      fetch(getWeatherUrl, {
+        mode: 'no-cors',
+      })
         .then((res) => res.json())
         .then((data) => setWeather(data));
 
-      fetch(getForecastUrl)
+      fetch(getForecastUrl, {
+        mode: 'no-cors',
+      })
         .then((res) => res.json())
         .then((data) => fiveDay(data));
     });
