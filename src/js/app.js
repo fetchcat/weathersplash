@@ -13,8 +13,7 @@ window.addEventListener('load', () => {
   let latitude;
 
   // OpenWeatherMap.org API Key - Use Environment Variable
-  // const apiKey = process.env.API_KEY;
-  const apiKey = 'f31102df1df2d7b675ab99ade20dccf8';
+  const apiKey = process.env.API_KEY;
 
   // Displays Error Message to user if fetch or geolocator fails
 
