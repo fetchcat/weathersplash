@@ -6,6 +6,12 @@
   box-sizing: border-box;
 }
 
+/* Import Roboto Font */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+/* App Styles */
+
 body {
   display: flex;
   justify-content: center;
@@ -15,13 +21,13 @@ body {
   min-height: 100vh;
 }
 
-.temperature-section {
+.app {
   display: flex;
   flex-direction: column;
   color: white;
 }
 
-.temperature-section * {
+.app * {
   display: flex;
   justify-content: center;
 }
@@ -119,4 +125,16 @@ body {
   display: flex;
   flex-direction: column;
   padding: 1em;
+}
+
+.message {
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: white;
+  color: #de5b52;
+  padding: 2em;
+  border-radius: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

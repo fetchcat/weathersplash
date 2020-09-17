@@ -6,14 +6,23 @@ import '../css/styles.css';
 
 window.addEventListener('load', () => {
   // Select App Div
-  const app = document.querySelector('.temperature-section');
+  const app = document.querySelector('.app');
 
   // Declare Location Co-ordinates
   let longitude;
   let latitude;
 
-  // OpenWeatherMap.org API Key
-  const apiKey = process.env.API_KEY;
+  // OpenWeatherMap.org API Key - Use Environment Variable
+  // const apiKey = process.env.API_KEY;
+  const apiKey = 'f31102df1df2d7b675ab99ade20dccf8';
+
+  // Displays Error Message to user if fetch or geolocator fails
+
+  function setError(error) {
+    if (typeof error === 'string') {
+      app.innerHTML = `<div class="message">${error}</div>`;
+    }
+  }
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -23,6 +32,8 @@ window.addEventListener('load', () => {
       const getWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
       const getForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+      // Converts Celsius to Fahrenheit
 
       function convertToF(degree) {
         const celsius = Math.floor(degree);
@@ -199,14 +210,14 @@ window.addEventListener('load', () => {
       fetch(getWeatherUrl)
         .then((res) => res.json())
         .then((data) => setWeather(data))
-        .catch((res) => res.json());
+        .catch(() => setError('Error: Failed to load content'));
 
       fetch(getForecastUrl)
         .then((res) => res.json())
         .then((data) => fiveDay(data))
-        .catch((res) => res.json());
+        .catch(() => setError('Error: Failed to load content'));
     });
   } else {
-    app.textContent = 'Error: No location found';
+    setError('Error: No location found');
   }
 });
