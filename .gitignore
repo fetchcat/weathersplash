@@ -1,2 +1,6 @@
 node_modules
-dist
+.env
+build
+src-v1
+db*.json
+requests.rest
