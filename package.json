@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "deploy": "yarn build && pm2 start server.js --name WeatherSplash"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
@@ -22,6 +23,7 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
-    "dotenv-webpack": "^7.1.0"
+    "dotenv-webpack": "^7.1.0",
+    "pm2": "^5.2.0"
   }
 }
