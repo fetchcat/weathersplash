@@ -9,6 +9,7 @@ Made with modern JavaScript and utilizes the OpenWeatherMap API to deliver curre
 Be sure to create a src/.env file set the following Environment Variable for development mode as well as production when pushed to server (eg. Netlify...etc).
 
 1. API_KEY (OpenWeatherMap.org API Key)
+2. PORT (Default is 5000)
 
 ## Scripts
 

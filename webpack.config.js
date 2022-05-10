@@ -54,7 +54,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "WebPack App",
+      title: "WeatherSplash",
       filename: "index.html",
       template: "src/template.html",
       favicon: "src/assets/favicon.ico",
