@@ -21,6 +21,10 @@ To build application for production
 
 > yarn build
 
+To build app and deploy using PM2
+
+> yarn deploy
+
 ## Tags
 
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
