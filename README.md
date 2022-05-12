@@ -6,7 +6,7 @@ Made with modern JavaScript and utilizes the OpenWeatherMap API to deliver curre
 
 ## Notes
 
-Be sure to create a src/.env file set the following Environment Variable for development mode as well as production when pushed to server (eg. Netlify...etc).
+Be sure to create a src/.env file set the following Environment Variable for development mode.
 
 1. API_KEY (OpenWeatherMap.org API Key)
 2. PORT (Default is 5000)
@@ -21,9 +21,12 @@ To build application for production
 
 > yarn build
 
-To build app and deploy using PM2
+## Deploy to GCP App Engine
 
-> yarn deploy
+1. Copy "example.app.yaml" to "app.yaml"
+2. Update API_KEY and make sure that app.yaml is included in .gitignore and NOT being pushed to git or other version control.
+3. Deploy App
+   > gcloud app deploy
 
 ## Tags
 

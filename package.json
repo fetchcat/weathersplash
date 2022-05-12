@@ -1,12 +1,16 @@
 {
   "name": "weathersplash",
   "version": "2.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode=production",
     "dev": "webpack serve",
-    "deploy": "yarn build && pm2 start server.js --name WeatherSplash"
+    "deploy": "yarn build && pm2 start server.js --name WeatherSplash",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "16.x.x"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
@@ -23,6 +27,7 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
+    "dotenv": "^16.0.1",
     "dotenv-webpack": "^7.1.0",
     "pm2": "^5.2.0"
   }

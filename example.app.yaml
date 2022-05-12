@@ -1,0 +1,14 @@
+runtime: nodejs16
+
+env_variables:
+  PORT: 5000
+  API_KEY: api-key-goes-here
+  NODE_ENV: production
+
+handlers:
+  - url: /(.*\..+)$
+    static_files: build/\1
+    upload: build/(.*\..+)$
+  - url: /.*
+    static_files: build/index.html
+    upload: build/index.html
