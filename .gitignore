@@ -5,3 +5,4 @@ src-v1
 db*.json
 requests.rest
 app.yaml
+*.json

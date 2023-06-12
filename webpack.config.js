@@ -1,8 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-const Dotenv = require('dotenv-webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   mode: 'development',
@@ -10,14 +10,15 @@ module.exports = {
     bundle: path.resolve(__dirname, 'src/js/index.js'),
   },
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: '[name]-[contenthash].js',
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name][contenthash].js',
     clean: true,
     assetModuleFilename: '[name][ext]',
   },
+  devtool: 'source-map',
   devServer: {
     static: {
-      directory: path.resolve(__dirname, 'build'),
+      directory: path.resolve(__dirname, 'dist'),
     },
     port: 3000,
     open: true,
@@ -28,12 +29,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-      },
-      {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.js$/,
@@ -56,13 +53,8 @@ module.exports = {
       title: 'WeatherSplash',
       filename: 'index.html',
       template: 'src/template.html',
-      favicon: 'src/assets/favicon.ico',
     }),
-    new MiniCssExtractPlugin({
-      linkType: 'text/css',
-      filename: 'index.css',
-      chunkFilename: '[name].css',
-    }),
-    new Dotenv(),
+    new BundleAnalyzerPlugin(),
+    new CleanWebpackPlugin(),
   ],
 };

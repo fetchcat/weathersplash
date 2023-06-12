@@ -21,7 +21,9 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
+    "clean-webpack-plugin": "^4.0.0",
     "dotenv": "^16.0.1",
-    "dotenv-webpack": "^8.0.1"
+    "dotenv-webpack": "^8.0.1",
+    "webpack-bundle-analyzer": "^4.9.0"
   }
 }
