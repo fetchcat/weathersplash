@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <div class="app">
+      <div class="container">
+        <header class="header">
+          <h1 class="header__h1">WeatherSplash</h1>
+        </header>
+        <main class="main">
+          <div class="weather">
+            <div class="weather__header">
+              <div class="weather__search" >
+                <label class="weather__label">
+                  <input
+                    type="text"
+                    class="weather__input"
+                    placeholder="Enter Location Name..."
+                    id="input"
+                  />
+                </label>
+                <button class="button weather__button" id="search">
+                  
+                </button>
+              </div>
+              <button class="button button--full" id="current">Use Current Location</button>
+            </div>
+            <div class="weather__forecast none">
+              <div class="weather__current">
+                <h2 id="location" class="weather__h2"></h2>
+                <h3 id="current-day" class="weather__h3"></h2>
+                <img id="current-weather-icon" class="none" alt="Current Weather Icon" />
+                <h3 id="current-weather" class="weather__h3"></h3>
+
+                <h3 id="current-temp"></h3>
+              </div>
+              <ul id='forecast' class="weather__list">
+              </ul>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
