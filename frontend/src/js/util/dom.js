@@ -18,6 +18,7 @@ export const renderCurrentWeather = (data) => {
   location.textContent = `${data.name}, ${data.sys.country}`;
 
   currentWeatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+  currentWeatherIcon.classList.add('weather__icon-lg');
   currentWeatherIcon.classList.remove('none');
   currentWeatherDesc.textContent = `${data.weather[0].main}`;
 };
@@ -27,8 +28,7 @@ export const renderEightDayForecast = (data) => {
   const forecast = document.querySelector('#forecast');
 
   days.forEach((day) => {
-    const { dayOfMonth, hours, minutes, dayFullName, monthFullName } =
-      parseDate(day.dt);
+    const { dayOfMonth, dayFullName, monthFullName } = parseDate(day.dt);
     const maxTempC = convertCelcius(day.temp.max);
     const maxTempF = convertFahrenheit(day.temp.max);
 
@@ -37,16 +37,19 @@ export const renderEightDayForecast = (data) => {
 
     const weatherDay = document.createElement('div');
     weatherDay.classList.add('weather__day');
+    weatherDay.textContent = `${dayFullName}, ${monthFullName} ${dayOfMonth}`;
 
-    const dayOfWeek = document.createElement('span');
-    dayOfWeek.textContent = `${dayFullName}, `;
+    const icon = document.createElement('img');
+    icon.src = `http://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
+    icon.alt = day.weather[0].description;
+    icon.classList.add('weather__icon-sm');
 
-    const date = document.createElement('span');
-    date.textContent = `${monthFullName} ${dayOfMonth}`;
-
-    weatherDay.appendChild(dayOfWeek).appendChild(date);
+    const temps = document.createElement('span');
+    temps.textContent = `${maxTempC}\u00B0C / ${maxTempF}\u00B0F`;
 
     weatherItem.appendChild(weatherDay);
+    weatherItem.appendChild(icon);
+    weatherItem.appendChild(temps);
 
     forecast.appendChild(weatherItem);
   });

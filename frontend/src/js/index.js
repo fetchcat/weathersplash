@@ -9,6 +9,7 @@ import { getByGeolocation, getLocation } from './util/api';
 const searchButton = document.querySelector('#search');
 const searchInput = document.querySelector('#input');
 const currentButton = document.querySelector('#current');
+const details = document.querySelector('#details');
 
 searchButton.addEventListener('click', async () => {
   if (searchInput.value === '') return;
@@ -19,6 +20,7 @@ searchButton.addEventListener('click', async () => {
     renderCurrentWeather(response.weatherData);
     renderEightDayForecast(response.oneCallData);
     searchInput.value = '';
+    details.classList.remove('none');
   }
 });
 

@@ -1,7 +1,7 @@
 .weather {
   padding: 1rem;
   background-color: rgba(255, 255, 255, 0.25);
-
+  margin-bottom: 4rem;
   width: 100%;
 }
 
@@ -57,11 +57,13 @@
 .weather__forecast {
   display: flex;
   flex-direction: column;
+  padding-top: 2rem;
 }
 
 .weather__list {
-  list-style: none;
   width: 100%;
+  list-style: none;
+  padding-top: 1rem;
 }
 
 .weather__item {
@@ -79,14 +81,23 @@
 }
 
 .weather__day {
-  width: 6rem;
+  width: 10rem;
   display: flex;
   justify-content: space-between;
+  font-weight: 500;
 }
 
 .weather__icon-temp {
   display: flex;
   align-items: center;
+}
+
+.weather__icon-lg {
+  margin: 2.5rem 0;
+}
+
+.weather__icon-sm {
+  width: 2.5rem;
 }
 
 .weather__button {
@@ -101,10 +112,22 @@
 }
 
 .weather__current {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0 4rem 0;
+}
+
+.weather__or {
+  font-weight: 500;
+}
+
+.weather__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  justify-content: center;
 }
 
 @media only screen and (min-width: 768px) {
@@ -120,5 +143,8 @@
   }
   .weather__forecast {
     flex-direction: row;
+  }
+  .weather__current {
+    margin: 0 4rem 0 0;
   }
 }
