@@ -1,8 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -13,7 +13,7 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: '[name][contenthash].js',
     clean: true,
-    assetModuleFilename: 'assets/[name].[ext]',
+    assetModuleFilename: '[name].[ext]',
   },
   devtool: 'source-map',
   devServer: {
@@ -48,6 +48,9 @@ module.exports = {
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: '[name][ext][query]',
+        },
       },
     ],
   },
@@ -58,11 +61,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'WeatherSplash',
       filename: 'index.html',
-      template: 'public/index.html',
-      favicon: 'public/favicon.ico',
+      template: './public/index.html',
+      favicon: './public/favicon.ico',
       inject: true,
     }),
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
+    new CleanWebpackPlugin(),
   ],
 };
