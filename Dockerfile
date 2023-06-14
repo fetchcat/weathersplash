@@ -1,16 +1,32 @@
-# Frontend Stage 1 - Build with Yarn
-FROM node:lts as build
-WORKDIR /client
-ENV PATH /client/node_modules/.bin:$PATH
-COPY ./package*.json ./
+FROM node:18.16.0 as frontend
+ENV NODE_ENV=production
+
+WORKDIR /frontend
+
+COPY frontend/package*.json .
+
 RUN yarn install
-COPY . .
+
+COPY frontend .
+
 RUN yarn run build
 
-# Frontend Stage 2 - Take Vite build folder and copy to NGINX
-FROM nginx:stable
-COPY --from=build /client/build /usr/share/nginx/html
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx.conf /etc/nginx/conf.d
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+FROM node:18.16.0 as backend
+ENV NODE_ENV=production
+
+WORKDIR /backend
+COPY backend/package*.json .
+
+RUN yarn install
+
+COPY backend /app/backend
+
+WORKDIR /
+
+COPY --from=frontend /frontend/build /app/frontend/build
+
+WORKDIR /app/backend
+
+EXPOSE 5000
+
+CMD ["npm","run","start"]

@@ -1,13 +1,12 @@
 {
-  "name": "weathersplash",
-  "version": "2.1.0",
+  "name": "weathersplash-frontend",
+  "version": "2.2.0",
   "main": "server.js",
   "license": "MIT",
   "proxy": "http://localhost:5000",
   "scripts": {
     "build": "webpack --mode=production",
-    "dev": "webpack serve",
-    "deploy": "yarn build && node server.js"
+    "dev": "webpack serve"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
