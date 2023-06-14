@@ -106,4 +106,31 @@ export const renderLongTermData = (data) => {
   });
 };
 
+export const addLoader = () => {
+  const loader = document.createElement('div');
+  loader.setAttribute('id', 'loader');
+  loader.classList.add('loader');
+  const spinner = document.createElement('div');
+  spinner.classList.add('loader__spinner');
+  loader.appendChild(spinner);
+  weather.appendChild(loader);
+};
+
+export const removeLoader = () => {
+  const loader = document.querySelector('#loader');
+  loader.remove();
+};
+
+export const addMessage = (type, text) => {
+  if (type === undefined || text === undefined) return;
+
+  const message = document.createElement('div');
+  message.classList.add(
+    type === 'error' ? 'message message--error' : 'message'
+  );
+  message.innerText = text;
+
+  weather.appendChild(message);
+};
+
 export default renderCurrentData;

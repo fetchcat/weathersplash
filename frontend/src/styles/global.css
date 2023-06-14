@@ -8,7 +8,7 @@
   --background-color: #4a8fe7;
   --text-color: #f2f4ff;
   --info-color: #686963;
-  --error-color: #db5461;
+  --error-color: #d43545;
 
   --tablet-breakpoint: 768px;
   --desktop-breakpoint: 1200px;
@@ -49,4 +49,8 @@
 
 .none {
   display: none;
+}
+
+.show {
+  display: flex;
 }

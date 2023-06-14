@@ -1,11 +1,18 @@
 .loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader__spinner {
   border: 0.5rem solid var(--text-color);
   border-top: 0.5rem solid var(--primary-color);
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 2s linear infinite;
+  width: 3rem;
+  height: 3rem;
+  animation: spin 1.5s linear infinite;
   display: flex;
+  margin: 2rem 0;
 }
 
 @keyframes spin {
