@@ -13,7 +13,7 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: '[name][contenthash].js',
     clean: true,
-    assetModuleFilename: 'images/[name].[ext]',
+    assetModuleFilename: 'assets/[name].[ext]',
   },
   devtool: 'source-map',
   devServer: {
@@ -46,7 +46,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource',
       },
     ],
@@ -58,7 +58,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'WeatherSplash',
       filename: 'index.html',
-      template: 'src/template.html',
+      template: 'public/index.html',
+      favicon: 'public/favicon.ico',
+      inject: true,
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
