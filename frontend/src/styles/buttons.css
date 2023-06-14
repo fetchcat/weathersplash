@@ -13,6 +13,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .button:hover {
@@ -24,6 +25,19 @@
   border-bottom-left-radius: 0.5rem;
   padding: 0 2rem;
   width: 100%;
+}
+
+.button--outline {
+  background: none;
+  line-height: 2.2rem;
+  border: solid 2px var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+.button--outline:hover {
+  background: none;
+  border: solid 2px var(--text-color);
+  color: var(--text-color);
 }
 
 @media only screen and (min-width: 768px) {

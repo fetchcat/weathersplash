@@ -5,47 +5,22 @@ import '../styles/weather.css';
 import '../styles/loader.css';
 import '../styles/message.css';
 
-import { renderCurrentWeather, renderEightDayForecast } from './util/dom';
-import { getByGeolocation, getLocation } from './util/api';
-import { addLoader, removeLoader, addMessage } from './util/dom';
+import searchFieldListener, { currentLocationListener } from './util/listeners';
+import { clearWeather } from './util/dom';
 
 const searchButton = document.querySelector('#search');
-const searchInput = document.querySelector('#input');
 const currentButton = document.querySelector('#current');
-const details = document.querySelector('#details');
+const inputField = document.querySelector('#input');
+const clearButton = document.querySelector('#clear');
 
-searchButton.addEventListener('click', async () => {
-  if (searchInput.value === '') return;
-
-  addLoader();
-
-  const response = await getLocation(searchInput.value);
-
-  if (response !== null) {
-    renderCurrentWeather(response.weatherData);
-    renderEightDayForecast(response.oneCallData);
-    searchInput.value = '';
-    details.classList.remove('none');
-    removeLoader();
-  }
-  addMessage('error', 'derp');
+// Search Button and Input Field
+searchButton.addEventListener('click', searchFieldListener);
+inputField.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') searchFieldListener();
 });
 
-currentButton.addEventListener('click', async () => {
-  if ('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition(async (position) => {
-      const { latitude, longitude } = position.coords;
-      const response = await getByGeolocation(latitude, longitude);
+// Current Button
+currentButton.addEventListener('click', currentLocationListener);
 
-      if (response !== null) {
-        renderCurrentWeather(response.weatherData);
-        renderEightDayForecast(response.oneCallData);
-        searchInput.value = '';
-        details.classList.remove('none');
-      }
-    });
-  } else {
-    /* geolocation IS NOT available */
-    console.log('derp');
-  }
-});
+// Clear Button
+clearButton.addEventListener('click', clearWeather);

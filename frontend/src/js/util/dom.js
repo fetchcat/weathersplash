@@ -55,82 +55,61 @@ export const renderEightDayForecast = (data) => {
   });
 };
 
-const renderCurrentData = (data) => {
-  const currentWeatherDesc = document.querySelector('#current-weather');
-  const currentWeatherIcon = document.querySelector('#current-weather-icon');
-  const currentDay = document.querySelector('#current-day');
-
-  const location = document.querySelector('#location');
-  const loader = document.querySelector('#loader');
-
-  const { dayFullName, monthFullName, dayOfMonth } = parseDate(data.dt);
-
-  loader.classList.add('none');
-
-  location.textContent = `${data.name}, ${data.sys.country}`;
-  currentWeatherDesc.textContent = data.weather[0].main;
-  currentTemp.textContent = `${convertCelcius(
-    data.main.temp
-  )}\xB0C / ${convertFahrenheit(data.main.temp)}\xB0F`;
-
-  currentDay.textContent = `${dayFullName}, ${monthFullName} ${dayOfMonth}`;
-
-  currentWeatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-};
-
-// Render 8 Day forecast elements to DOM
-export const renderLongTermData = (data) => {
-  const eightDay = document.querySelector('#eight-day');
-
-  data.daily.forEach((day) => {
-    const { dayFullName } = parseDate(day.dt);
-    const maxTempC = convertCelcius(day.temp.max);
-    const maxTempF = convertFahrenheit(day.temp.max);
-
-    const minTempC = convertCelcius(day.temp.min);
-    const minTempF = convertFahrenheit(day.temp.min);
-
-    const dayForecast = document.createElement('div');
-    dayForecast.classList.add('day');
-    dayForecast.innerHTML = `
-      <h3>${dayFullName}</h3>
-      <div class="icon-background">
-        <img src='http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png' />
-      </div>
-      <p class="info-color">${day.weather[0].main}</p>
-      <p class="info-color">High: ${maxTempC}C/${maxTempF}F</p>
-      <p class="info-color">Low: ${minTempC}C/${minTempF}F</p>
-      <p class="info-color">Humidity: ${day.humidity}%</p>
-    `;
-    eightDay.appendChild(dayForecast);
-  });
-};
-
 export const addLoader = () => {
   const loader = document.createElement('div');
   loader.setAttribute('id', 'loader');
   loader.classList.add('loader');
+
   const spinner = document.createElement('div');
   spinner.classList.add('loader__spinner');
+
   loader.appendChild(spinner);
   weather.appendChild(loader);
 };
 
 export const removeLoader = () => {
   const loader = document.querySelector('#loader');
-  loader.remove();
+  if (loader !== null) loader.remove();
 };
 
 export const addMessage = (type, text) => {
   if (type === undefined || text === undefined) return;
-
   const message = document.createElement('div');
-  message.classList.add(
-    type === 'error' ? 'message message--error' : 'message'
-  );
+
+  message.classList.add('message');
+  if (type === 'error') message.classList.add('message--error');
   message.innerText = text;
 
   weather.appendChild(message);
 };
 
-export default renderCurrentData;
+export const cleanupMessages = () => {
+  const existingMessages = document.querySelectorAll('.message');
+  if (existingMessages !== null) {
+    existingMessages.forEach((message) => message.remove());
+  }
+};
+
+export const clearWeather = () => {
+  // Reset mesages and Loader as well
+  cleanupMessages();
+  removeLoader();
+
+  const currentTemp = document.querySelector('#current-temp');
+  const currentWeatherIcon = document.querySelector('#current-weather-icon');
+  const currentWeatherDesc = document.querySelector('#current-weather');
+  const currentDay = document.querySelector('#current-day');
+  const location = document.querySelector('#location');
+  const forecast = document.querySelector('#forecast');
+  const details = document.querySelector('#details');
+
+  currentTemp.innerText = '';
+  currentWeatherIcon.src = '';
+  currentWeatherIcon.classList.add('none');
+  currentWeatherDesc.innerText = '';
+  currentDay.innerText = '';
+  location.innerText = '';
+  forecast.innerText = '';
+
+  details.classList.add('none');
+};
