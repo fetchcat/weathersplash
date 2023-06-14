@@ -1,6 +1,6 @@
 import { renderCurrentWeather, renderEightDayForecast } from './dom';
 import { getByGeolocation, getLocation } from './api';
-import { addLoader, removeLoader, addMessage, cleanupMessages } from './dom';
+import { removeLoader, addMessage, cleanupMessages } from './dom';
 
 const searchInput = document.querySelector('#input');
 const details = document.querySelector('#details');
@@ -30,6 +30,7 @@ export const currentLocationListener = async () => {
   cleanupMessages();
   removeLoader();
 
+  // Get current location from Geolocation
   if ('geolocation' in navigator) {
     navigator.geolocation.getCurrentPosition(
       async (position) => {
@@ -47,7 +48,6 @@ export const currentLocationListener = async () => {
       },
       () => {
         // Add error message if location is declined
-        console.log('derp');
         addMessage('error', 'Please enable location services in your browser');
       }
     );

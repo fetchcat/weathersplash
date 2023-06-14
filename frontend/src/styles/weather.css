@@ -71,7 +71,6 @@
   align-items: center;
   width: 100%;
   justify-content: space-between;
-
   font-weight: 500;
 }
 
@@ -131,10 +130,6 @@
 }
 
 @media only screen and (min-width: 768px) {
-  /* .weather__search {
-    width: 20rem;
-    margin-bottom: 0;
-  } */
   .weather {
     border-radius: 0.5rem;
   }

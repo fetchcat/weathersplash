@@ -1,8 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin =
-  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -32,8 +33,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /.s?css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.js$/,
@@ -51,6 +52,9 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    minimizer: [`...`, new CssMinimizerPlugin()],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'WeatherSplash',
@@ -59,5 +63,6 @@ module.exports = {
     }),
     new BundleAnalyzerPlugin(),
     new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(),
   ],
 };

@@ -22,69 +22,69 @@ export const getDay = (day) => {
   let dayOfWeek;
   switch (day) {
     case 0:
-      dayOfWeek = 'Sunday';
+      dayOfWeek = 'Sun';
       break;
     case 1:
-      dayOfWeek = 'Monday';
+      dayOfWeek = 'Mon';
       break;
     case 2:
-      dayOfWeek = 'Tuesday';
+      dayOfWeek = 'Tue';
       break;
     case 3:
-      dayOfWeek = 'Wednesday';
+      dayOfWeek = 'Wed';
       break;
     case 4:
-      dayOfWeek = 'Thursday';
+      dayOfWeek = 'Thu';
       break;
     case 5:
-      dayOfWeek = 'Friday';
+      dayOfWeek = 'Fri';
       break;
     case 6:
-      dayOfWeek = 'Saturday';
+      dayOfWeek = 'Sat';
       break;
   }
   return dayOfWeek;
 };
 
-// Generate full month name
+// Generate month name
 export const getMonth = (month) => {
   let currentMonth;
   switch (month) {
     case 0:
-      currentMonth = 'January';
+      currentMonth = 'Jan';
       break;
     case 1:
-      currentMonth = 'February';
+      currentMonth = 'Feb';
       break;
     case 2:
-      currentMonth = 'March';
+      currentMonth = 'Mar';
       break;
     case 3:
-      currentMonth = 'April';
+      currentMonth = 'Apr';
       break;
     case 4:
       currentMonth = 'May';
       break;
     case 5:
-      currentMonth = 'June';
+      currentMonth = 'Jun';
       break;
     case 6:
-      currentMonth = 'July';
+      currentMonth = 'Jul';
       break;
     case 7:
-      currentMonth = 'August';
+      currentMonth = 'Aug';
       break;
     case 8:
-      currentMonth = 'September';
+      currentMonth = 'Sep';
       break;
     case 9:
-      currentMonth = 'October';
+      currentMonth = 'Oct';
       break;
     case 10:
-      currentMonth = 'November';
+      currentMonth = 'Nov';
       break;
     case 11:
-      currentMonth = 'December';
+      currentMonth = 'Dec';
       break;
   }
   return currentMonth;
