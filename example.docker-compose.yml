@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: weathersplash
+    restart: unless-stopped
+    environment:
+      - API_KEY=
+      - PORT=5000
+    ports:
+      - 5000:5000
+    networks:
+      - shared-network
+
+networks:
+  shared-network:
