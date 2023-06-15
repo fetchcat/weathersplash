@@ -8,6 +8,8 @@ Made with modern JavaScript and utilizes the OpenWeatherMap API to deliver curre
 
 In root app directory, run `yarn run install-dependencies` to install both backend and frontend dependencies. Necessary for development or production.
 
+When ready to deploy application via docker compose, run `yarn run deploy`
+
 ## Development
 
 Copy example.env file to .env and add your OpenWeatherMap API Key.
