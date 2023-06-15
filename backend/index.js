@@ -33,8 +33,13 @@ app.use(cors());
 // Serve frontend through static folder
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 
+app.use(
+  '/weathersplash',
+  express.static(path.join(__dirname, '../frontend/build'))
+);
+
 // API Routes
-app.use('/api', weatherRoutes);
+app.use('/weathersplash/api', weatherRoutes);
 
 // Error Handler
 app.use(errorHandler);
