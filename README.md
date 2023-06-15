@@ -1,26 +1,25 @@
-# WeatherSplash App
+# WeatherSplash
 
 ![WeatherSplash Screenshot](https://my-portfolio-screens.s3.ca-central-1.amazonaws.com/weathersplash/weathersplash-screen-lg.png)
 
-Weather Application (Vanilla JS)
-
-Made with modern JavaScript and utilizes the OpenWeatherMap API to deliver current weather (in both Celcius and Fahrenheit) based on location name or current location (via browser location services). It displays current weather data and can be deployed via Docker.
-
-## Development
-
-1. Copy example.env file to .env and add desired port and OpenWeatherMap API Key.
+Made with modern JavaScript and utilizes the OpenWeatherMap API to deliver current weather (in both Celcius and Fahrenheit) based on location name or current location (via browser location services). It displays current weather data and can be easily deployed via Docker Compose.
 
 ## Scripts
 
-Install all dependencies
+In root app directory, run `yarn run install-dependencies` to install both backend and frontend dependencies. Necessary for development or production.
 
-> yarn run install-dependencies
+When ready to deploy application via docker compose, run `yarn run deploy`
 
-## Deploy with Docker Compose
+## Development
+
+Copy example.env file to .env and add your OpenWeatherMap API Key.
+
+## Deploy to Production with Docker
 
 1. Copy example.docker-compose.yml to docker-compose.yml
-2. Add OpenWeatherMap API Key and Port (Optional) to Environment section.
-3. Build and deploy image with `yarn run deploy` from app's root directory.
+2. Add OpenWeatherMap API_KEY to environment section
+3. (Optional)Change port depending on your use case - default is 5000
+4. Build and deploy image with `yarn run deploy` from app's root directory
 
 ## Tags
 
