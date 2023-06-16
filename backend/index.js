@@ -14,9 +14,6 @@ const port = process.env.PORT || 5000;
 const windowRate = 300000;
 const maxRate = 100;
 
-// Set base URL either / or subdirectory
-const baseUrl = '/weathersplash';
-
 // Limit API to respond to
 const limiter = rateLimit({
   windowMs: windowRate,
@@ -34,7 +31,7 @@ if (process.env.NODE_ENV !== 'production') {
 app.use(cors());
 
 // Main Router
-app.use(baseUrl, indexRoutes);
+app.use('/', indexRoutes);
 
 // Error Handler
 app.use(errorHandler);
