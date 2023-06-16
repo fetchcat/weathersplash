@@ -3,7 +3,7 @@
   "version": "2.2.0",
   "description": "Weather App",
   "main": "backend/index.js",
-  "repository": "git@github.com:fetchcat/weathersplash.git",
+  "repository": "git@github.com:merogersdev/weathersplash.git",
   "author": "Michelle Rogers <michelle@merogers.dev>",
   "license": "MIT",
   "scripts": {
