@@ -1,6 +1,6 @@
 export const getLocation = async (city) => {
   try {
-    const weather = await fetch(`/weathersplash/api?city=${city}`);
+    const weather = await fetch(`/api?city=${city}`);
     const weatherData = await weather.json();
     return weatherData;
   } catch (error) {
@@ -11,9 +11,7 @@ export const getLocation = async (city) => {
 
 export const getByGeolocation = async (latitude, longitude) => {
   try {
-    const weather = await fetch(
-      `/weathersplash/api/geo?lat=${latitude}&lon=${longitude}`
-    );
+    const weather = await fetch(`/api/geo?lat=${latitude}&lon=${longitude}`);
     const weatherData = await weather.json();
     return weatherData;
   } catch (error) {
