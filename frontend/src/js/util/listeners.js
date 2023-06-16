@@ -1,4 +1,8 @@
-import { renderCurrentWeather, renderEightDayForecast } from './dom';
+import {
+  clearWeather,
+  renderCurrentWeather,
+  renderEightDayForecast,
+} from './dom';
 import { getByGeolocation, getLocation } from './api';
 import { removeLoader, addMessage, cleanupMessages } from './dom';
 
@@ -11,6 +15,7 @@ const searchFieldListener = async () => {
   // Reset
   cleanupMessages();
   removeLoader();
+  clearWeather();
 
   const response = await getLocation(searchInput.value);
 
