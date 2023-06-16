@@ -40,7 +40,7 @@ export const renderEightDayForecast = (data) => {
     weatherDay.textContent = `${dayFullName}, ${monthFullName} ${dayOfMonth}`;
 
     const icon = document.createElement('img');
-    icon.src = `http://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
+    icon.src = `https://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
     icon.alt = day.weather[0].description;
     icon.classList.add('weather__icon-sm');
 
