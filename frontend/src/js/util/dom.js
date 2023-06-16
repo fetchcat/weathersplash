@@ -17,7 +17,7 @@ export const renderCurrentWeather = (data) => {
 
   location.textContent = `${data.name}, ${data.sys.country}`;
 
-  currentWeatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+  currentWeatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
   currentWeatherIcon.classList.add('weather__icon-lg');
   currentWeatherIcon.classList.remove('none');
   currentWeatherDesc.textContent = `${data.weather[0].main}`;
