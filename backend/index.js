@@ -10,7 +10,7 @@ const pc = require('picocolors');
 const indexRoutes = require('./routes');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 const windowRate = 300000;
 const maxRate = 100;
 

@@ -1,32 +1,17 @@
-FROM node:18.16.0 as frontend
+FROM node:lts-alpine as frontend
+
 ENV NODE_ENV=production
+WORKDIR /app
+COPY ./frontend/ .
+RUN yarn && yarn build
 
-WORKDIR /frontend
+FROM node:lts-alpine as backend
 
-COPY frontend/package*.json .
-
-RUN yarn install
-
-COPY frontend .
-
-RUN yarn run build
-
-FROM node:18.16.0 as backend
 ENV NODE_ENV=production
-
-WORKDIR /backend
-COPY backend/package*.json .
-
-RUN yarn install
-
-COPY backend /app/backend
-
-WORKDIR /
-
-COPY --from=frontend /frontend/build /app/frontend/build
-
 WORKDIR /app/backend
-
-EXPOSE 5000
+COPY ./backend/ .
+RUN yarn install
+COPY --from=frontend /app/build /app/frontend/build
+EXPOSE 8080
 
 CMD ["npm","run","start"]
