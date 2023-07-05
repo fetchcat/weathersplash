@@ -8,3 +8,4 @@ app.yaml
 
 docker-compose.yml
 env.yaml
+service.yaml
